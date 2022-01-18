@@ -107,7 +107,7 @@
 <!--        version-->
         <junit.version>4.12</junit.version>
         <jacoco.version>0.8.5</jacoco.version>
-        <pit.version>1.6.7</pit.version>
+        <pit.version>1.7.3</pit.version>
         <automatic-module-name>-SUBMODULES-NEED-TO-OVERRIDE-THIS-</automatic-module-name>
 
 <!--        mockito-->
@@ -864,7 +864,7 @@
 
 <profiles>
     <profile>
-        <id>isw2-test</id>
+        <id>isw2-coverage</id>
         <properties>
             <test.jvm.arguments>@{argLine} -Xmx${test.jvm.maxheapsize} -XX:+HeapDumpOnOutOfMemoryError</test.jvm.arguments>
             <surefire.jvm.args>${test.jvm.arguments}</surefire.jvm.args>
@@ -900,14 +900,21 @@
                 <artifactId>mockito-core</artifactId>
                 <version>${mockito.version}</version>
             </plugin>
+            </plugins>
+        </build>
+    </profile>
+    <profile>
+        <id>isw2-mutation-test</id>
+        <build>
+            <plugins>
                 <plugin>
                     <groupId>org.pitest</groupId>
                     <artifactId>pitest-maven</artifactId>
-                    <version>LATEST</version>
+                    <version>${pit.version}</version>
                     <configuration>
                         <targetClasses>
-                            <param>org.apache.openjpa.lib.util.*</param>
-                            <param>org.apache.openjpa.util.*</param>
+                            <param>org.apache.openjpa.lib.util.StringDistance*</param>
+                            <param>org.apache.openjpa.util.ProxyManagerImpl*</param>
                         </targetClasses>
                         <targetTests>
                             <param></param>
