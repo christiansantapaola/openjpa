@@ -23,10 +23,14 @@ public class StringDistanceGetLevenshteinDistanceTest {
     @Parameterized.Parameters
     public static Collection<Object[]> testingSet() {
         return Arrays.asList(new Object[][]{
+                /* Category Partition */
+                /* Empty String test*/
                 {"", "", 0},
                 {"", "abc", 3},
                 {"abc", "", 3},
+                /* Happy Path */
                 {"kitten", "sitting", 3},
+                /* Equal String */
                 {"equals", "equals", 0}
         });
     }

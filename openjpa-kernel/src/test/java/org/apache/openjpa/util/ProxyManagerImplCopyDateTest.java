@@ -28,16 +28,22 @@ public class ProxyManagerImplCopyDateTest {
         this.proxyManager = new ProxyManagerImpl();
     }
 
+    public static Date setTime(Date date, long time) {
+        date.setTime(time);
+        return date;
+    }
+
     @Parameterized.Parameters
     public static Collection<Object[]> testingSet() {
         ProxyManagerImpl pm = new ProxyManagerImpl();
         return Arrays.asList(new Object[][]{
                 /* valid input */
                 {new Date(1999)},
-                {new java.sql.Date(1999)},
+                //{new java.sql.Date(1999)},
                 {new Timestamp(1999)},
                 /* proxy input */
                 {pm.newDateProxy(Date.class)},
+                {setTime(((Date) pm.newDateProxy(Date.class)), 1999)},
                 /* invalid input */
                 {null}
         });

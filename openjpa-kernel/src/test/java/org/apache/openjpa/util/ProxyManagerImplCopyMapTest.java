@@ -60,7 +60,9 @@ public class ProxyManagerImplCopyMapTest {
                 /* null input*/
                 {null},
                 /* proxy input */
-                {pm.newMapProxy(HashMap.class, String.class, String.class, null, false)}
+                {pm.newMapProxy(HashMap.class, String.class, String.class, null, false)},
+                {create((Map) pm.newMapProxy(HashMap.class, Integer.class, String.class, null, false))},
+
 
         });
     }

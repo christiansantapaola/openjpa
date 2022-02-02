@@ -56,6 +56,7 @@ public class ProxyManagerImplCopyCollectionTest {
                 {create(new LinkedList())},
                 {create(new ArrayList())},
                 {pm.newCollectionProxy(ArrayList.class, null, null, false)},
+                {create((Collection) pm.newCollectionProxy(ArrayList.class, Object.class, null, false))},
                 {null},
 
         });

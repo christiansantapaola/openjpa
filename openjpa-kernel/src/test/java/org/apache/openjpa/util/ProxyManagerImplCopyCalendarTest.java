@@ -19,11 +19,16 @@ public class ProxyManagerImplCopyCalendarTest {
         this.calendar = calendar;
     }
 
-    private static Calendar populate(Calendar cal) {
+    public static Calendar populate(Calendar cal) {
         cal.setTimeInMillis(1999);
         cal.setTimeZone(TimeZone.getTimeZone("CST"));
         return cal;
     }
+
+    public static void assertCalendarsEqual(Calendar c1, Calendar c2) {
+        Assert.assertEquals(c1, c2);
+    }
+
 
     @Parameterized.Parameters
     public static Collection<Object[]> testingSet() {
@@ -32,14 +37,12 @@ public class ProxyManagerImplCopyCalendarTest {
                 /* valid input */
                 {populate(new GregorianCalendar())},
                 {pm.newCalendarProxy(GregorianCalendar.class, TimeZone.getTimeZone("CST"))},
+                {populate((Calendar) pm.newCalendarProxy(GregorianCalendar.class, TimeZone.getTimeZone("CST")))},
                 {null}
         });
     }
 
 
-    private static void assertCalendarsEqual(Calendar c1, Calendar c2) {
-        Assert.assertEquals(c1, c2);
-    }
 
 
     @Before

@@ -184,15 +184,15 @@
         <module>openjpa</module>
         <module>openjpa-lib</module>
         <module>openjpa-kernel</module>
-        <module>openjpa-jdbc</module>
-        <module>openjpa-persistence</module>
+<!--        <module>openjpa-jdbc</module>-->
+<!--        <module>openjpa-persistence</module>-->
 <!--        <module>openjpa-persistence-jdbc</module>-->
 <!--        <module>openjpa-persistence-locking</module>-->
 <!--        <module>openjpa-xmlstore</module>-->
 <!--        <module>openjpa-slice</module>-->
 <!--        <module>openjpa-jest</module>-->
 <!--        <module>openjpa-kubernetes</module>-->
-        <module>openjpa-project</module>
+<!--        <module>openjpa-project</module>-->
 <!--        <module>openjpa-examples</module>-->
 <!--        <module>openjpa-integration</module>-->
 <!--        <module>openjpa-all</module>-->
@@ -913,11 +913,12 @@
                     <version>${pit.version}</version>
                     <configuration>
                         <targetClasses>
-                            <param>org.apache.openjpa.lib.util.StringDistance*</param>
-                            <param>org.apache.openjpa.util.ProxyManagerImpl*</param>
+                            <param>org.apache.openjpa.lib.util.StringDistance</param>
+                            <param>org.apache.openjpa.util.ProxyManagerImpl</param>
                         </targetClasses>
                         <targetTests>
-                            <param></param>
+                            <param>org.apache.openjpa.lib.util.StringDistance*</param>
+                            <param>org.apache.openjpa.util.ProxyManagerImpl*</param>
                         </targetTests>
                     </configuration>
                 </plugin>
