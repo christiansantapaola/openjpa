@@ -175,7 +175,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
                 <configuration>
-                    <argLine>@{argLine} ${surefire.jvm.args}</argLine>
+                    <argLine>${surefire.jvm.args}</argLine>
                 </configuration>
             </plugin>
         </plugins>

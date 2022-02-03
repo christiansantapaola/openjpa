@@ -531,11 +531,6 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.rat</groupId>
-                    <artifactId>apache-rat-plugin</artifactId>
-                    <version>0.12</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>3.1.1</version>
@@ -763,41 +758,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.rat</groupId>
-                <artifactId>apache-rat-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <excludeSubProjects>false</excludeSubProjects>
-                    <numUnapprovedLicenses>0</numUnapprovedLicenses>
-                    <excludes>
-                        <!-- generated content -->
-                        <exclude>**/.*/**</exclude>
-                        <exclude>**/target/**/*</exclude>
-                    </excludes>
-                    <includes>
-                        <!-- only check common source files -->
-                        <include>**/src/**/*.bat</include>
-                        <include>**/src/**/*.css</include>
-                        <include>**/src/**/*.html</include>
-                        <include>**/src/**/*.java</include>
-                        <include>**/src/**/*.js</include>
-                        <include>**/src/**/*.jsp</include>
-                        <include>**/src/**/*.properties</include>
-                        <include>**/src/**/*.sh</include>
-                        <include>**/src/**/*.txt</include>
-                        <include>**/src/**/*.vm</include>
-                        <include>**/src/**/*.xml</include>
-                    </includes>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
