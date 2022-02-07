@@ -24,6 +24,7 @@ before_install:
       curl https://d3pxv6yz143wms.cloudfront.net/8.232.09.1/java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb > java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb
       sudo dpkg -i java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb
       rm java-1.8.0-amazon-corretto-jdk_8.232.09-1_amd64.deb
+      export OLD_JAVA_HOME=${JAVA_HOME}
       export JAVA_HOME="/usr/lib/jvm/java-1.8.0-amazon-corretto"
       ./platform_linux/build.sh --noninteractive
       ;;
