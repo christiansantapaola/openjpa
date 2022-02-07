@@ -14,8 +14,7 @@ addons:
 
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
+  - ls /usr/lib/jvm
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent verify
-  - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
   - mvn sonar:sonar -Dsonar.projectKey=christiansantapaola_bookkeeper
 
